@@ -1,0 +1,216 @@
+[
+     {
+          "id": "d1",
+          "name": "Dr. Ayesha Rahman",
+          "specialty": "Cardiologist",
+          "image": "https://images.unsplash.com/photo-1741868159744-159b83484687",
+          "education": "MBBS, MD (Cardiology), FCPS",
+          "experience": "10 years",
+          "availability": [
+               "09:00 AM - 12:00 PM",
+               "04:00 PM - 07:00 PM"
+          ],
+          "description": "Highly experienced cardiologist specializing in heart diseases, preventive care, and patient-centered treatment.",
+          "hospital": "Labaid Cardiac Hospital",
+          "location": "Dhanmondi, Dhaka",
+          "fee": 800,
+          "rating": 4.8,
+          "totalReviews": 124
+     },
+     {
+          "id": "d2",
+          "name": "Prof. Dr. M. A. Bashar",
+          "specialty": "Neurologist",
+          "image": "https://images.unsplash.com/photo-1712215544003-af10130f8eb3",
+          "education": "MBBS, MD (Neurology), PhD",
+          "experience": "15 years",
+          "availability": [
+               "10:00 AM - 01:00 PM",
+               "06:00 PM - 09:00 PM"
+          ],
+          "description": "Expert in treating complex neurological disorders, stroke management, and chronic migraines.",
+          "hospital": "National Institute of Neurosciences & Hospital",
+          "location": "Agargaon, Dhaka",
+          "fee": 1000,
+          "rating": 4.9,
+          "totalReviews": 210
+     },
+     {
+          "id": "d3",
+          "name": "Dr. Nusrat Jahan",
+          "specialty": "Gynecologist",
+          "image": "https://i.ibb.co/doctor-demo.jpg",
+          "education": "MBBS, MS (OBGYN), DGO, FCPS",
+          "experience": "8 years",
+          "availability": [
+               "11:00 AM - 03:00 PM",
+               "05:00 PM - 08:00 PM"
+          ],
+          "description": "Specialized in high-risk pregnancies, maternal-fetal medicine, and general reproductive health.",
+          "hospital": "Square Hospital",
+          "location": "Panthapath, Dhaka",
+          "fee": 900,
+          "rating": 4.6,
+          "totalReviews": 95
+     },
+     {
+          "id": "d4",
+          "name": "Dr. Tanvir Ahmed",
+          "specialty": "Pediatrician",
+          "image": "https://i.ibb.co/doctor-demo.jpg",
+          "education": "MBBS, MD (Pediatrics), FCPS",
+          "experience": "12 years",
+          "availability": [
+               "09:30 AM - 12:30 PM",
+               "04:30 PM - 07:30 PM"
+          ],
+          "description": "Dedicated child specialist focusing on newborn care, childhood immunizations, and pediatric nutrition.",
+          "hospital": "Evercare Hospital",
+          "location": "Bashundhara R/A, Dhaka",
+          "fee": 1200,
+          "rating": 4.7,
+          "totalReviews": 150
+     },
+     {
+          "id": "d5",
+          "name": "Prof. Dr. Asif Iqbal",
+          "specialty": "Orthopedic Surgeon",
+          "image": "https://images.unsplash.com/photo-1637059824899-a441006a6875",
+          "education": "MBBS, MS (Orthopedics), M.Ch (UK)",
+          "experience": "18 years",
+          "availability": [
+               "03:00 PM - 06:00 PM",
+               "07:00 PM - 09:30 PM"
+          ],
+          "description": "Renowned surgeon specializing in joint replacements, sports injuries, and complex fracture management.",
+          "hospital": "Popular Diagnostic Center",
+          "location": "Dhanmondi, Dhaka",
+          "fee": 1000,
+          "rating": 4.9,
+          "totalReviews": 188
+     },
+     {
+          "id": "d6",
+          "name": "Dr. Sabina Yasmin",
+          "specialty": "Dermatologist",
+          "image": "https://i.ibb.co/doctor-demo.jpg",
+          "education": "MBBS, DDV, MD (Dermatology)",
+          "experience": "7 years",
+          "availability": [
+               "10:00 AM - 01:00 PM",
+               "04:00 PM - 06:30 PM"
+          ],
+          "description": "Specialist in clinical dermatology, skin allergy treatments, and advanced cosmetic procedures.",
+          "hospital": "United Hospital",
+          "location": "Gulshan, Dhaka",
+          "fee": 1000,
+          "rating": 4.5,
+          "totalReviews": 84
+     },
+     {
+          "id": "d7",
+          "name": "Dr. Mehdi Hasan",
+          "specialty": "Endocrinitologist",
+          "image": "https://i.ibb.co/doctor-demo.jpg",
+          "education": "MBBS, MD (Endocrinology), DEM",
+          "experience": "9 years",
+          "availability": [
+               "08:00 AM - 11:00 AM",
+               "05:00 PM - 08:00 PM"
+          ],
+          "description": "Expert in diabetes management, thyroid disorders, and metabolic hormonal imbalances.",
+          "hospital": "BIRDEM General Hospital",
+          "location": "Shahbagh, Dhaka",
+          "fee": 700,
+          "rating": 4.7,
+          "totalReviews": 112
+     },
+     {
+          "id": "d8",
+          "name": "Dr. Farhana Chowdhury",
+          "specialty": "Ophthalmologist",
+          "image": "https://i.ibb.co/doctor-demo.jpg",
+          "education": "MBBS, MS (Ophthalmology), DO",
+          "experience": "11 years",
+          "availability": [
+               "09:00 AM - 01:00 PM"
+          ],
+          "description": "Specialized in cataract surgery, glaucoma treatment, and comprehensive vision care.",
+          "hospital": "Bangladesh Eye Hospital",
+          "location": "Zigatola, Dhaka",
+          "fee": 800,
+          "rating": 4.6,
+          "totalReviews": 73
+     },
+     {
+          "id": "d9",
+          "name": "Dr. Kamrul Islam",
+          "specialty": "Urologist",
+          "image": "https://i.ibb.co/doctor-demo.jpg",
+          "education": "MBBS, MS (Urology), Fellow (WHO)",
+          "experience": "14 years",
+          "availability": [
+               "04:00 PM - 08:00 PM"
+          ],
+          "description": "Expert in kidney stone removal, prostate health, and advanced urological surgeries.",
+          "hospital": "Center for Kidney Diseases & Urology",
+          "location": "Shyamoli, Dhaka",
+          "fee": 900,
+          "rating": 4.8,
+          "totalReviews": 142
+     },
+     {
+          "id": "d10",
+          "name": "Dr. Saima Anwar",
+          "specialty": "Psychiatrist",
+          "image": "https://i.ibb.co/doctor-demo.jpg",
+          "education": "MBBS, MD (Psychiatry), MPhil",
+          "experience": "6 years",
+          "availability": [
+               "02:00 PM - 05:00 PM",
+               "06:30 PM - 09:00 PM"
+          ],
+          "description": "Compassionate mental health professional specializing in anxiety, depression, and stress management.",
+          "hospital": "Anwer Khan Modern Medical College",
+          "location": "Dhanmondi, Dhaka",
+          "fee": 800,
+          "rating": 4.4,
+          "totalReviews": 56
+     },
+     {
+          "id": "d11",
+          "name": "Dr. Rashedul Haque",
+          "specialty": "ENT Specialist",
+          "image": "https://i.ibb.co/doctor-demo.jpg",
+          "education": "MBBS, DLO, MS (ENT)",
+          "experience": "13 years",
+          "availability": [
+               "10:30 AM - 01:30 PM",
+               "05:30 PM - 08:30 PM"
+          ],
+          "description": "Specialized in ear, nose, and throat disorders, sinus surgeries, and hearing assessment.",
+          "hospital": "Green Life Medical College Hospital",
+          "location": "Green Road, Dhaka",
+          "fee": 700,
+          "rating": 4.5,
+          "totalReviews": 68
+     },
+     {
+          "id": "d12",
+          "name": "Dr. Ariful Islam",
+          "specialty": "Gastroenterologist",
+          "image": "https://i.ibb.co/doctor-demo.jpg",
+          "education": "MBBS, MD (Gastroenterology), FCPS",
+          "experience": "10 years",
+          "availability": [
+               "09:00 AM - 12:00 PM",
+               "04:00 PM - 07:00 PM"
+          ],
+          "description": "Specialist in liver diseases, gastric issues, and therapeutic endoscopy/colonoscopy.",
+          "hospital": "Ibn Sina Specialized Hospital",
+          "location": "Dhanmondi, Dhaka",
+          "fee": 800,
+          "rating": 4.7,
+          "totalReviews": 105
+     }
+]

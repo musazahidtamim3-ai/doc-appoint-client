@@ -20,7 +20,7 @@ const Navbar = () => {
                     </ul>
                     <div className='flex gap-3'>
                     <Button className='bg-white text-[#54bbb8] border border-[#54bbb8] rounded-md font-semibold' >Login</Button>
-                    <Button className='bg-linear-to-r from-[#01cfbe] to-[#54bbb8]  text-white rounded-md font-semibold'>Register</Button>
+                    <Link href={'/auth/register'}><Button className='bg-linear-to-r from-[#01cfbe] to-[#54bbb8]  text-white rounded-md font-semibold'>Register</Button></Link>
                     </div>
                
                

@@ -4,7 +4,7 @@
           "name": "Dr. Ayesha Rahman",
           "specialty": "Cardiologist",
           "image": "https://images.unsplash.com/photo-1741868159744-159b83484687",
-          "education": "MBBS, MD (Cardiology), FCPS",
+          "education": "MBBS, MD-Cardiology",
           "experience": "10 years",
           "availability": [
                "09:00 AM - 12:00 PM",
@@ -22,7 +22,7 @@
           "name": "Prof. Dr. M. A. Bashar",
           "specialty": "Neurologist",
           "image": "https://images.unsplash.com/photo-1712215544003-af10130f8eb3",
-          "education": "MBBS, MD (Neurology), PhD",
+          "education": "MBBS, MD-Neurology",
           "experience": "15 years",
           "availability": [
                "10:00 AM - 01:00 PM",
@@ -76,7 +76,7 @@
           "name": "Prof. Dr. Asif Iqbal",
           "specialty": "Orthopedic Surgeon",
           "image": "https://images.unsplash.com/photo-1637059824899-a441006a6875",
-          "education": "MBBS, MS (Orthopedics), M.Ch (UK)",
+          "education": "MBBS, MS-Orthopedics",
           "experience": "18 years",
           "availability": [
                "03:00 PM - 06:00 PM",

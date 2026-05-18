@@ -4,6 +4,8 @@ import { BiSkipNext } from "react-icons/bi";
 import { MdDomainVerification, MdOutlineCollectionsBookmark } from "react-icons/md";
 import { TbClockHour2 } from "react-icons/tb";
 import Featured from "./components/Featured";
+import Choose from "./components/Choose";
+import Feedback from "./components/Feedback";
 
 export default function Home() {
   const users = [
@@ -87,6 +89,8 @@ export default function Home() {
         
       </div>
       <Featured />
+      <Choose />
+      <Feedback/>
     </div>
   );
 }

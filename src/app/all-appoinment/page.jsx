@@ -1,7 +1,7 @@
 import AllDoctors from '../components/AllDoctors';
 
 const AllAppoinmentPage = async () => {
-     const res = await fetch('http://localhost:3000/doctors.json')
+     const res = await fetch('http://localhost:5000/doctors')
      const doctors = await res.json()
 
      return (

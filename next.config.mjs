@@ -19,10 +19,13 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'i.ibb.co',
-        port: '',
+        hostname: 'lh3.googleusercontent.com', // গুগলের মেইন প্রোফাইল পিকচার ডোমেইন
         pathname: '/**',
-        search: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'googleusercontent.com', // সেফটি হিসেবে গুগলের সেকেন্ডারি ডোমেইন
+        pathname: '/**',
       },
     ],
   },

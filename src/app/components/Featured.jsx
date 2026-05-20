@@ -1,11 +1,12 @@
 import { Button } from '@heroui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { TbCurrencyTaka } from 'react-icons/tb';
 
 const Featured = async() => {
-     const res = await fetch('http://localhost:3000/doctors.json')
+     const res = await fetch('http://localhost:5000/doctors')
      const datas = await res.json()
      const doctors = [...datas].sort((a,b)=>(b.rating-a.rating)).slice(0, 3)
      return (
@@ -36,7 +37,7 @@ const Featured = async() => {
                                              </div>
                                              <p className='font-semibold flex items-center'><TbCurrencyTaka className='w-4 h-4'/>{doctor.fee}</p>
                                              <p className='text-gray-400 pb-3 text-sm'>Consultation Fee</p>
-                                             <Button className='bg-linear-to-r from-[#01cfbe] to-[#54bbb8]  text-white rounded-md font-semibold w-full'>View Details</Button>
+                                             <Link href={`/all-appoinment/${doctor.id}`}><Button className='bg-linear-to-r from-[#01cfbe] to-[#54bbb8]  text-white rounded-md font-semibold w-full'>View Details</Button></Link>
                                         </div>
                                    </div>
                               ))

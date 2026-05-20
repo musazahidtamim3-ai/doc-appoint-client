@@ -6,12 +6,12 @@ const Choose = () => {
      return (
           <div>
                <div className='bg-white'>
-                    <div className='max-w-7xl mx-auto pb-20'>
+                    <div className='max-w-7xl mx-auto pb-20 px-5 lg:px-0'>
                          <div className='text-center'>
                               <h1 className='text-4xl font-semibold pb-2'>Why Choose <span className='text-[#54bbb8]'>Doc Appoint ?</span></h1>
                               <p>We provide the best healthcare experience for you and your family</p>
                          </div>
-                         <div className='mt-8 grid grid-cols-4 gap-5'>
+                         <div className='mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                               <div className='bg-white p-5 flex items-center gap-5 border border-[#54bbb8]/30 rounded-md hover:scale-105 shadow-md shadow-[#54bbb8]/30'>
                                    <div className='bg-[#54bbb734] p-3 rounded-full'>
                                         <MdDateRange className='w-6 h-6 text-[#03928d]' />

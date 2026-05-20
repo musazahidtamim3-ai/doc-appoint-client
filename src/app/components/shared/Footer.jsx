@@ -6,8 +6,8 @@ import { MdHealthAndSafety } from 'react-icons/md';
 const Footer = () => {
      return (
           <div className='bg-[#c5f6f439] py-10 backdrop-blur-3xl'>
-               <div className='max-w-7xl mx-auto '>
-                    <div className='grid grid-cols-3 gap-20'>
+               <div className='max-w-7xl mx-auto px-5 lg:px-0'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20'>
                          <div>
                               <div className='flex items-center gap-2'>
                                    <div className='bg-linear-to-r from-[#01cfbe] to-[#54bbb8] p-1 text-white rounded-md'>

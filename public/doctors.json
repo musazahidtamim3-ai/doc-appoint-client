@@ -39,8 +39,8 @@
           "id": "d3",
           "name": "Dr. Nusrat Jahan",
           "specialty": "Gynecologist",
-          "image": "https://i.ibb.co/doctor-demo.jpg",
-          "education": "MBBS, MS (OBGYN), DGO, FCPS",
+          "image": "https://images.unsplash.com/photo-1628258473666-9d3149c1da55",
+          "education": "MBBS, MS-OBGYN",
           "experience": "8 years",
           "availability": [
                "11:00 AM - 03:00 PM",
@@ -57,8 +57,8 @@
           "id": "d4",
           "name": "Dr. Tanvir Ahmed",
           "specialty": "Pediatrician",
-          "image": "https://i.ibb.co/doctor-demo.jpg",
-          "education": "MBBS, MD (Pediatrics), FCPS",
+          "image": "https://images.unsplash.com/photo-1582750433449-648ed127bb54",
+          "education": "MBBS, MD-Pediatrics",
           "experience": "12 years",
           "availability": [
                "09:30 AM - 12:30 PM",
@@ -93,8 +93,8 @@
           "id": "d6",
           "name": "Dr. Sabina Yasmin",
           "specialty": "Dermatologist",
-          "image": "https://i.ibb.co/doctor-demo.jpg",
-          "education": "MBBS, DDV, MD (Dermatology)",
+          "image": "https://images.unsplash.com/photo-1753486986927-ff09dafb99a1",
+          "education": "MBBS, MD-Dermatology",
           "experience": "7 years",
           "availability": [
                "10:00 AM - 01:00 PM",
@@ -111,9 +111,9 @@
           "id": "d7",
           "name": "Dr. Mehdi Hasan",
           "specialty": "Endocrinitologist",
-          "image": "https://i.ibb.co/doctor-demo.jpg",
-          "education": "MBBS, MD (Endocrinology), DEM",
-          "experience": "9 years",
+          "image": "https://images.unsplash.com/photo-1620928269189-dc4ee9d981c0",
+          "education": "MBBS, MD-Endocrinology",
+          "experience": "19 years",
           "availability": [
                "08:00 AM - 11:00 AM",
                "05:00 PM - 08:00 PM"
@@ -127,10 +127,10 @@
      },
      {
           "id": "d8",
-          "name": "Dr. Farhana Chowdhury",
+          "name": "Dr. Farhana Khan",
           "specialty": "Ophthalmologist",
-          "image": "https://i.ibb.co/doctor-demo.jpg",
-          "education": "MBBS, MS (Ophthalmology), DO",
+          "image": "https://images.unsplash.com/photo-1676653002396-8e5aa96a3fcc",
+          "education": "MBBS, MS-Ophthalmology",
           "experience": "11 years",
           "availability": [
                "09:00 AM - 01:00 PM"
@@ -146,8 +146,8 @@
           "id": "d9",
           "name": "Dr. Kamrul Islam",
           "specialty": "Urologist",
-          "image": "https://i.ibb.co/doctor-demo.jpg",
-          "education": "MBBS, MS (Urology), Fellow (WHO)",
+          "image": "https://images.unsplash.com/photo-1603843722974-3a4031f9f97c",
+          "education": "MBBS, MS-Urology",
           "experience": "14 years",
           "availability": [
                "04:00 PM - 08:00 PM"
@@ -163,8 +163,8 @@
           "id": "d10",
           "name": "Dr. Saima Anwar",
           "specialty": "Psychiatrist",
-          "image": "https://i.ibb.co/doctor-demo.jpg",
-          "education": "MBBS, MD (Psychiatry), MPhil",
+          "image": "https://images.unsplash.com/photo-1757125736482-328a3cdd9743",
+          "education": "MBBS, MD-Psychiatry",
           "experience": "6 years",
           "availability": [
                "02:00 PM - 05:00 PM",
@@ -181,8 +181,8 @@
           "id": "d11",
           "name": "Dr. Rashedul Haque",
           "specialty": "ENT Specialist",
-          "image": "https://i.ibb.co/doctor-demo.jpg",
-          "education": "MBBS, DLO, MS (ENT)",
+          "image": "https://images.unsplash.com/photo-1647763283644-578114aba0c2",
+          "education": "MBBS, MS-ENT",
           "experience": "13 years",
           "availability": [
                "10:30 AM - 01:30 PM",
@@ -199,8 +199,8 @@
           "id": "d12",
           "name": "Dr. Ariful Islam",
           "specialty": "Gastroenterologist",
-          "image": "https://i.ibb.co/doctor-demo.jpg",
-          "education": "MBBS, MD (Gastroenterology), FCPS",
+          "image": "https://images.unsplash.com/photo-1580281658626-ee379f3cce93",
+          "education": "MBBS, MD-Gastroenterology",
           "experience": "10 years",
           "availability": [
                "09:00 AM - 12:00 PM",

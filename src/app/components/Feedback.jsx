@@ -41,12 +41,12 @@ const Feedback = () => {
      ]
      return (
           <div className='bg-white'>
-               <div className='max-w-7xl mx-auto pb-20'>
+               <div className='max-w-7xl mx-auto pb-20 px-5 lg:px-0'>
                     <div className='text-center'>
                          <h1 className='text-4xl font-semibold pb-2'>What Our <span className='text-[#54bbb8]'>Patients Say ?</span></h1>
                          <p>Listen about our services and healthcare directly from Our patients.</p>
                     </div>
-                    <div className='grid grid-cols-3 gap-5 mt-8'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8'>
                          {
                               feedbacks.map((feed, index) => (
                                    <div key={index} className='bg-white p-5 border border-[#54bbb8]/30 rounded-md hover:scale-105 shadow-md shadow-[#54bbb8]/30'>

@@ -10,12 +10,12 @@ const Featured = async() => {
      const doctors = [...datas].sort((a,b)=>(b.rating-a.rating)).slice(0, 3)
      return (
           <div className='bg-white'>
-               <div className='max-w-7xl mx-auto py-20'>
+               <div className='max-w-7xl mx-auto py-20 px-5 lg:px-0'>
                     <div className='text-center'>
-                         <h1 className='text-4xl font-semibold pb-2'>Top Rated <span className='text-[#54bbb8]'>Doctors</span></h1>
+                         <h1 className='text-3xl md:text-4xl font-semibold pb-2'>Top Rated <span className='text-[#54bbb8]'>Doctors</span></h1>
                          <p>Highly qualified and experienced doctors ready to help you</p>
                     </div>
-                    <div className="mt-8 grid grid-cols-3 gap-5">
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                          {
                               doctors.map(doctor => (
                                    <div key={doctor.id} className='rounded-xl border flex gap-5 p-5'>

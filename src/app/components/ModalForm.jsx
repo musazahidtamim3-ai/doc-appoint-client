@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { Button, DateField, Input, Label, Modal, Surface, TextField } from "@heroui/react";
+import { Button, DateField, Input, Label, ListBox, Modal, Surface, TextField, Select, TimeField } from "@heroui/react";
 import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -15,12 +15,13 @@ const ModalForm = ({ doctorName }) => {
           const formatedDate = data.date ? data.date.toString() : "";
 
           const bookingData = {
-               doctor: data.doctor,
-               name: data.name,
-               email: data.email,
+               userEmail: data.email,
+               doctorName: data.doctor,
+               patientName: data.name,
+               gender: data.gender,
                phone: data.phone,
-               date: formatedDate,
-               reason: data.reason
+               appointmentDate: formatedDate,
+               appointmentTime: data.time
           };
 
           console.log("Submitting Booking Data:", bookingData);
@@ -69,7 +70,12 @@ const ModalForm = ({ doctorName }) => {
                                    <Modal.Body className="py-3">
                                         <Surface variant="default">
                                              <form onSubmit={handleSubmit(handleTableData)} className="flex flex-col gap-4">
-                                                  <TextField className="w-full" name="doctor" variant="secondary">
+                                                  <TextField className="w-full" name="email" type="email" variant="secondary">
+                                                       <Label>User E-mail</Label>
+                                                       <Input placeholder="Enter your email" className='bg-gray-50'{...register("email", { required: true })} />
+                                                       {errors.email && <p className='text-red-500 text-sm'>This field is required</p>}
+                                                  </TextField>
+                                                  <TextField className="w-full" name="Doctor name" variant="secondary">
                                                        <Label>Doctor name</Label>
                                                        <Input value={doctorName} className='bg-gray-50' />
                                                   </TextField>
@@ -78,11 +84,38 @@ const ModalForm = ({ doctorName }) => {
                                                        <Input placeholder="Enter your name" className='bg-gray-50' {...register("name", { required: true })} />
                                                        {errors.name && <p className='text-red-500 text-sm'>This field is required</p>}
                                                   </TextField>
-                                                  <TextField className="w-full" name="email" type="email" variant="secondary">
-                                                       <Label>Email</Label>
-                                                       <Input placeholder="Enter your email" className='bg-gray-50'{...register("email", { required: true })} />
-                                                       {errors.email && <p className='text-red-500 text-sm'>This field is required</p>}
-                                                  </TextField>
+                                                  <Controller
+                                                       name="gender"
+                                                       control={control}
+                                                       rules={{ required: true }}
+                                                       render={({ field: { onChange, value } }) => (
+                                                  <Select selectedKey={value}
+                                                                 onSelectionChange={onChange}  className="w-full" placeholder="Select one">
+                                                       <Label>Gender</Label>
+                                                       <Select.Trigger>
+                                                            <Select.Value />
+                                                            <Select.Indicator />
+                                                       </Select.Trigger>
+                                                       <Select.Popover>
+                                                            <ListBox>
+                                                                 <ListBox.Item id="male" textValue="Male">
+                                                                      Male
+                                                                      <ListBox.ItemIndicator />
+                                                                 </ListBox.Item>
+                                                                 <ListBox.Item id="female" textValue="Female">
+                                                                      Female
+                                                                      <ListBox.ItemIndicator />
+                                                                 </ListBox.Item>
+                                                                 <ListBox.Item id="custom" textValue="Custom">
+                                                                      Custom
+                                                                      <ListBox.ItemIndicator />
+                                                                 </ListBox.Item>
+                                                            </ListBox>
+                                                                 </Select.Popover>
+                                                                 {errors.gender && <p className='text-red-500 text-sm mt-1'>Gender is required</p>}
+                                                  </Select>
+                                                       )}
+                                                  />
                                                   <TextField className="w-full" name="phone" type="tel" variant="secondary">
                                                        <Label>Phone</Label>
                                                        <Input placeholder="Enter your phone number" className='bg-gray-50' {...register("phone", { required: true })} />
@@ -98,7 +131,7 @@ const ModalForm = ({ doctorName }) => {
                                                                  value={value}
                                                                  onChange={onChange}
                                                             >
-                                                                 <Label>Booking date</Label>
+                                                                 <Label>Appointment date</Label>
                                                                  <DateField.Group>
                                                                       <DateField.Input className="bg-gray-50">
                                                                            {(segment) => <DateField.Segment segment={segment} />}
@@ -110,11 +143,20 @@ const ModalForm = ({ doctorName }) => {
                                                             </DateField>
                                                        )}
                                                   />
-                                                  <TextField className="w-full" name="reason">
-                                                       <Label>Reason</Label>
-                                                       <Input placeholder="Enter your reason for book doctor" className='bg-gray-50' {...register("reason", { required: true })} />
-                                                       {errors.reason && <p className='text-red-500 text-sm'>This field is required</p>}
-                                                  </TextField>
+                                                  <Controller
+                                                       name="time"
+                                                       control={control}
+                                                       rules={{ required: true }}
+                                                       render={({ field: { onChange, value } }) => (
+                                                            <TimeField className="w-full" name="time" value={value}
+                                                                 onChange={onChange}>
+                                                       <Label>Appointment time</Label>
+                                                       <TimeField.Group>
+                                                            <TimeField.Input className='bg-gray-50'>{(segment) => <TimeField.Segment segment={segment} />}</TimeField.Input>
+                                                       </TimeField.Group>
+                                                  </TimeField>
+                                                       )}
+                                                  />
                                                   <Modal.Footer>
 
                                                        <Button className='rounded-md bg-linear-to-r from-[#01cfbe] to-[#54bbb8] text-white font-bold' type='submit'>Confirm Booking</Button>

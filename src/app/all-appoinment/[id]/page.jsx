@@ -44,10 +44,8 @@ export default function DoctorDetailsPage() {
 
      return (
           <div className="min-h-screen bg-gray-50/50 py-12 px-5 lg:px-8 flex items-center justify-center">
-               {/* Main Single Premium Card */}
                <div className="max-w-7xl w-full bg-white rounded-3xl shadow-xl border border-gray-100/80 overflow-hidden grid grid-cols-1 md:grid-cols-12 items-stretch">
 
-                    {/* Left Column: Full Height Image Section */}
                     <div className="md:col-span-5 bg-linear-to-b from-cyan-50/30 to-gray-50 relative min-h-87.5 md:min-h-full border-b md:border-b-0 md:border-r border-gray-100 flex flex-col justify-between">
 
                          <div className="absolute inset-0 w-full h-full">
@@ -59,11 +57,9 @@ export default function DoctorDetailsPage() {
                                    className="object-cover transition-transform duration-500 hover:scale-105"
                                    priority
                               />
-                              {/* Soft overlay on top of image for a modern look */}
                               <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent md:hidden"></div>
                          </div>
 
-                         {/* Rating Badge Layered on top of Image (Mobile and Desktop friendly) */}
                          <div className="relative z-10 m-5 mt-auto self-start flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm border border-white/20">
                               <span className="text-amber-500 text-sm">⭐</span>
                               <span className="font-bold text-gray-800 text-sm">{doctor.rating}</span>
@@ -71,10 +67,8 @@ export default function DoctorDetailsPage() {
                          </div>
                     </div>
 
-                    {/* Right Column: Detailed Information Section */}
                     <div className="md:col-span-7 p-8 md:p-10 flex flex-col justify-between space-y-6">
 
-                         {/* Header Info */}
                          <div>
                               <span className="text-[#54bbb8] font-semibold text-xs md:text-sm px-3 py-1 bg-cyan-50 rounded-full inline-block mb-2">
                                    {doctor.specialty}
@@ -83,7 +77,6 @@ export default function DoctorDetailsPage() {
                               <p className="text-gray-500 text-sm mt-1 font-medium">{doctor.education}</p>
                          </div>
 
-                         {/* About / Biography */}
                          <div className="bg-gray-50/60 p-4 rounded-xl border border-gray-100">
                               <h3 className="text-sm font-bold text-gray-800 mb-1 flex items-center gap-2">
                                    <span className="w-1 h-3.5 bg-[#54bbb8] rounded-full inline-block"></span>
@@ -94,7 +87,6 @@ export default function DoctorDetailsPage() {
                               </p>
                          </div>
 
-                         {/* Quick Grid Info: Chamber & Fee */}
                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                               <div className="flex items-start gap-3 bg-gray-50/40 p-3 rounded-xl border border-gray-100/50">
                                    <span className="text-xl mt-0.5">🏥</span>
@@ -115,7 +107,6 @@ export default function DoctorDetailsPage() {
                               </div>
                          </div>
 
-                         {/* Core Specialties Tags */}
                          {doctor.specialties && (
                               <div>
                                    <h4 className="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2">Specialized In</h4>
@@ -132,7 +123,6 @@ export default function DoctorDetailsPage() {
                               </div>
                          )}
 
-                         {/* Chamber Availability Hours */}
                          <div>
                               <h4 className="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2">Chamber Availability</h4>
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -148,10 +138,10 @@ export default function DoctorDetailsPage() {
                               </div>
                          </div>
 
-                         {/* Action Button */}
                          <div className="pt-2">
                               
-                              <ModalForm doctorName={doctor.name} />
+                              <ModalForm doctorName={doctor.name} doctorId={doctor.id}
+                                   doctorFee={doctor.fee} />
                          </div>
 
                     </div>

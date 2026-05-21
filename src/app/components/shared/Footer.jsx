@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { FiFacebook, FiGithub, FiLinkedin, FiTwitter, FiYoutube } from 'react-icons/fi';
+import { FiFacebook, FiGithub, FiLinkedin, FiTwitter, FiX, FiYoutube } from 'react-icons/fi';
 import { MdHealthAndSafety } from 'react-icons/md';
 
 const Footer = () => {
@@ -38,7 +38,7 @@ const Footer = () => {
                                         <FiLinkedin className='text-gray-400' />
                                    </div>
                                    <div className='bg-white p-2 rounded-md'>
-                                        <FiTwitter className='text-gray-400'/>
+                                        <FiX className='text-gray-400'/>
                                    </div>
                                    <div className='bg-white p-2 rounded-md'>
                                         <FiGithub className='text-gray-400' />

@@ -16,10 +16,15 @@ export default function DoctorDetailsPage() {
      const [loading, setLoading] = useState(true);
 
      useEffect(() => {
-          if (!id) return;
+          const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || "https://doc-appoint-server-delta.vercel.app";
+
+          if (!id || id === "undefined" || !serverUrl) {
+               setLoading(false);
+               return;
+          }
 
           setLoading(true);
-          fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctors/${id}`)
+          fetch(`${serverUrl}/doctors/${id}`)
                .then((res) => {
                     if (!res.ok) {
                          throw new Error("Doctor not found in server");
@@ -37,7 +42,7 @@ export default function DoctorDetailsPage() {
                });
      }, [id]);
 
-     if (loading) {
+     if (loading || !id || id === "undefined") {
           return (
                <div className="flex justify-center items-center min-h-screen">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#54bbb8]"></div>
@@ -64,7 +69,6 @@ export default function DoctorDetailsPage() {
                                    src={doctor.image}
                                    alt={doctor.name}
                                    fill
-                                   unoptimized
                                    className="object-cover transition-transform duration-500 hover:scale-105"
                                    priority
                               />

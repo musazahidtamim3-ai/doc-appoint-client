@@ -35,8 +35,8 @@ const LoginPage = () => {
           }
      }
      return (
-          <div className='min-h-screen '>
-               <Form onSubmit={handleSubmit(handleLoginFunc)} className="max-w-2xl mx-auto my-20 space-y-4 rounded-lg border border-border bg-surface p-10">
+          <div className='min-h-screen px-5 lg:px-0'>
+               <Form onSubmit={handleSubmit(handleLoginFunc)} className="max-w-2xl mx-auto my-20 space-y-4 rounded-lg border border-border bg-surface p-5 md:p-10">
                               <div className='flex justify-center items-center gap-2'>
                                                   <div className='bg-linear-to-r from-[#01cfbe] to-[#54bbb8] p-1 text-white rounded-md'>
                                                        <MdHealthAndSafety className='w-6 h-6' /> 

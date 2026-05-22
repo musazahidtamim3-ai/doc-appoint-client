@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import { toast } from "react-toastify";
 import ModalForm from "@/app/components/ModalForm";
 
 export default function DoctorDetailsPage() {
@@ -138,7 +137,7 @@ export default function DoctorDetailsPage() {
                               </div>
                          </div>
 
-                         <div className="pt-2">
+                         <div className="pt-2 px-5 lg:px-0">
                               
                               <ModalForm doctorName={doctor.name} doctorId={doctor.id}
                                    doctorFee={doctor.fee} />

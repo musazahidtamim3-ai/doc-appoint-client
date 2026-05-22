@@ -77,7 +77,7 @@ const MyBookings = () => {
      };
 
      return (
-          <div className="max-w-7xl mx-auto my-10 px-5 lg:px-0">
+          <div className="max-w-7xl mx-auto my-10 ">
                <h2 className="text-xl font-bold mb-6">My Bookings ({bookings.length})</h2>
 
                <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>

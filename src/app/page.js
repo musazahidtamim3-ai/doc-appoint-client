@@ -1,6 +1,5 @@
 import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
-import { BiSkipNext } from "react-icons/bi";
 import { MdDomainVerification, MdOutlineCollectionsBookmark } from "react-icons/md";
 import { TbClockHour2 } from "react-icons/tb";
 import Featured from "./components/Featured";

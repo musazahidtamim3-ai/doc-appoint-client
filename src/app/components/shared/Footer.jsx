@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { FaXTwitter } from 'react-icons/fa6';
 import { FiFacebook, FiGithub, FiLinkedin, FiTwitter, FiX, FiYoutube } from 'react-icons/fi';
 import { MdHealthAndSafety } from 'react-icons/md';
 
@@ -28,19 +29,19 @@ const Footer = () => {
                          <div>
                               <h1 className='font-semibold'>Follow Us</h1>
                               <div className='flex items-center gap-3 mt-3'>
-                                   <div className='bg-white p-2 rounded-md'>
+                                   <div className='bg-white/50 p-2 rounded-md'>
                                         <FiFacebook className='text-gray-400'/>
                                    </div>
-                                   <div className='bg-white p-2 rounded-md'>
+                                   <div className='bg-white/50 p-2 rounded-md'>
                                         <FiYoutube className='text-gray-400' />
                                    </div>
-                                   <div className='bg-white p-2 rounded-md'>
+                                   <div className='bg-white/50 p-2 rounded-md'>
                                         <FiLinkedin className='text-gray-400' />
                                    </div>
-                                   <div className='bg-white p-2 rounded-md'>
-                                        <FiX className='text-gray-400'/>
+                                   <div className='bg-white/50 p-2 rounded-md'>
+                                        <FaXTwitter className='text-gray-400'/>
                                    </div>
-                                   <div className='bg-white p-2 rounded-md'>
+                                   <div className='bg-white/50 p-2 rounded-md'>
                                         <FiGithub className='text-gray-400' />
                                    </div>
                               </div>

@@ -33,8 +33,6 @@ const ModalForm = ({ doctorName }) => {
                appointmentTime: formatedTime
           };
 
-          console.log("Submitting Booking Data:", bookingData);
-
           try {
                const res = await fetch('http://localhost:5000/bookings', {
                     method: "POST",
@@ -45,21 +43,15 @@ const ModalForm = ({ doctorName }) => {
                     body: JSON.stringify(bookingData)
                });
 
-               // ১. অথেন্টিকেশন এরর হ্যান্ডেল করা
                if (res.status === 401 || res.status === 403) {
                     toast.error("Session expired or unauthorized! Please login again.");
                     return;
                }
-
-               // ২. সেফটি চেক: রেসপন্স যদি JSON না হয়ে অন্য কিছু (HTML/Text) হয়, যেন ক্র্যাশ না করে
                if (!res.ok) {
-                    const errorText = await res.text();
-                    console.error("Backend Error Response:", errorText);
                     toast.error("Server rejected the request! Check console.");
                     return;
                }
 
-               // ৩. রেসপন্স OK আসলেই কেবল JSON পার্স হবে
                const responseData = await res.json();
 
                if (responseData.insertedId) {
@@ -75,7 +67,7 @@ const ModalForm = ({ doctorName }) => {
      };
 
      return (
-          <div>
+          <div className="w-full">
                <Modal>
                     <Button
                          className="w-full bg-linear-to-r from-[#01cfbe] to-[#54bbb8] text-white font-bold rounded-md py-3"
@@ -83,23 +75,28 @@ const ModalForm = ({ doctorName }) => {
                          Book Appointment Now
                     </Button>
                     <Modal.Backdrop>
-                         <Modal.Container placement="auto">
-                              <Modal.Dialog className="max-w-lg">
+                         {/* ১. কন্টেইনারকে ফ্লেক্স এবং আইটেম সেন্টার করে মোবাইলের জন্য স্ক্রিন ফিট করা হয়েছে */}
+                         <Modal.Container placement="auto" className="!flex !items-center !justify-center p-4">
+                              {/* ২. এখানে ইম্পর্ট্যান্ট (!) ট্যাগ ব্যবহার করে মোবাইল স্ক্রিনে মডাল ভেঙে যাওয়া বা বড় হওয়া আটকানো হয়েছে */}
+                              <Modal.Dialog className="!w-full !max-w-[calc(100%-1rem)] sm:!max-w-lg mx-auto bg-white rounded-xl shadow-2xl my-auto">
                                    <Modal.CloseTrigger />
-                                   <Modal.Header>
+
+                                   <Modal.Header className="p-4 sm:p-6 pb-2">
                                         <Modal.Heading className='text-[#54bbb8] text-xl font-semibold'>Confirm Your Booking</Modal.Heading>
-                                        <p className="text-sm leading-5 text-muted">
-                                             Fill out the form below and confirm your booking. We will contact you soon. For more information, you can contact us by our email.
+                                        <p className="text-sm leading-relaxed text-muted mt-2">
+                                             Fill out the form below and confirm your booking. We will contact you soon.
                                         </p>
                                    </Modal.Header>
-                                   <Modal.Body className="py-3">
-                                        <Surface variant="default">
+
+                                   {/* ৩. মোবাইলের কিবোর্ড অন হলে স্ক্রিন ছোট হয়ে যেন কেটে না যায় সেজন্য max-h এবং ওভারফ্লো */}
+                                   <Modal.Body className="p-4 sm:p-6 pt-0 max-h-[70vh] overflow-y-auto overflow-x-hidden">
+                                        <Surface variant="default" className="border-0 p-0 bg-transparent">
                                              <form onSubmit={handleSubmit(handleTableData)} className="flex flex-col gap-4">
 
                                                   <TextField className="w-full" name="email" type="email" variant="secondary">
                                                        <Label>User E-mail</Label>
                                                        <Input placeholder="Enter your email" className='bg-gray-50' {...register("email", { required: true })} />
-                                                       {errors.email && <p className='text-red-500 text-sm'>This field is required</p>}
+                                                       {errors.email && <p className='text-red-500 text-sm mt-1'>This field is required</p>}
                                                   </TextField>
 
                                                   <TextField className="w-full" name="doctor" variant="secondary">
@@ -110,7 +107,7 @@ const ModalForm = ({ doctorName }) => {
                                                   <TextField className="w-full" name="name" type="text" variant="secondary">
                                                        <Label>Patient name</Label>
                                                        <Input placeholder="Enter your name" className='bg-gray-50' {...register("name", { required: true })} />
-                                                       {errors.name && <p className='text-red-500 text-sm'>This field is required</p>}
+                                                       {errors.name && <p className='text-red-500 text-sm mt-1'>This field is required</p>}
                                                   </TextField>
 
                                                   <Controller
@@ -124,7 +121,7 @@ const ModalForm = ({ doctorName }) => {
                                                                       <Select.Value />
                                                                       <Select.Indicator />
                                                                  </Select.Trigger>
-                                                                 <Select.Popover>
+                                                                 <Select.Popover className="!max-w-[calc(100%-2rem)]">
                                                                       <ListBox>
                                                                            <ListBox.Item id="male" textValue="Male">Male <ListBox.ItemIndicator /></ListBox.Item>
                                                                            <ListBox.Item id="female" textValue="Female">Female <ListBox.ItemIndicator /></ListBox.Item>
@@ -139,9 +136,10 @@ const ModalForm = ({ doctorName }) => {
                                                   <TextField className="w-full" name="phone" type="tel" variant="secondary">
                                                        <Label>Phone</Label>
                                                        <Input placeholder="Enter your phone number" className='bg-gray-50' {...register("phone", { required: true })} />
-                                                       {errors.phone && <p className='text-red-500 text-sm'>This field is required</p>}
+                                                       {errors.phone && <p className='text-red-500 text-sm mt-1'>This field is required</p>}
                                                   </TextField>
 
+                                                  {/* ৪. ডেট এবং টাইম ফিল্ডের উইডথ সম্পূর্ণ ঠিক করা হয়েছে */}
                                                   <Controller
                                                        name="date"
                                                        control={control}
@@ -149,8 +147,8 @@ const ModalForm = ({ doctorName }) => {
                                                        render={({ field: { onChange, value } }) => (
                                                             <DateField className="w-full" value={value} onChange={onChange}>
                                                                  <Label>Appointment date</Label>
-                                                                 <DateField.Group>
-                                                                      <DateField.Input className="bg-gray-50">
+                                                                 <DateField.Group className="w-full flex">
+                                                                      <DateField.Input className="bg-gray-50 w-full !flex">
                                                                            {(segment) => <DateField.Segment segment={segment} />}
                                                                       </DateField.Input>
                                                                  </DateField.Group>
@@ -166,8 +164,8 @@ const ModalForm = ({ doctorName }) => {
                                                        render={({ field: { onChange, value } }) => (
                                                             <TimeField className="w-full" name="time" value={value} onChange={onChange}>
                                                                  <Label>Appointment time</Label>
-                                                                 <TimeField.Group>
-                                                                      <TimeField.Input className='bg-gray-50'>
+                                                                 <TimeField.Group className="w-full flex">
+                                                                      <TimeField.Input className='bg-gray-50 w-full !flex'>
                                                                            {(segment) => <TimeField.Segment segment={segment} />}
                                                                       </TimeField.Input>
                                                                  </TimeField.Group>
@@ -176,8 +174,10 @@ const ModalForm = ({ doctorName }) => {
                                                        )}
                                                   />
 
-                                                  <Modal.Footer>
-                                                       <Button className='rounded-md bg-linear-to-r from-[#01cfbe] to-[#54bbb8] text-white font-bold' type='submit'>Confirm Booking</Button>
+                                                  <Modal.Footer className="px-0 pt-2 w-full">
+                                                       <Button className='w-full rounded-md bg-linear-to-r from-[#01cfbe] to-[#54bbb8] text-white font-bold py-3' type='submit'>
+                                                            Confirm Booking
+                                                       </Button>
                                                   </Modal.Footer>
                                              </form>
                                         </Surface>

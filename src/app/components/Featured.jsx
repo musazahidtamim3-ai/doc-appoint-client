@@ -6,7 +6,7 @@ import { FaStar } from 'react-icons/fa';
 import { TbCurrencyTaka } from 'react-icons/tb';
 
 const Featured = async() => {
-     const res = await fetch('http://localhost:5000/doctors')
+     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctors`)
      const datas = await res.json()
      const doctors = [...datas].sort((a,b)=>(b.rating-a.rating)).slice(0, 3)
      return (

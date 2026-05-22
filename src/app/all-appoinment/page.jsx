@@ -5,7 +5,7 @@ export const metadata = {
 }
 
 const AllAppoinmentPage = async () => {
-     const res = await fetch('http://localhost:5000/doctors')
+     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctors`)
      const doctors = await res.json()
 
      return (

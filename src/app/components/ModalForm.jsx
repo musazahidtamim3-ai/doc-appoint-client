@@ -34,7 +34,7 @@ const ModalForm = ({ doctorName }) => {
           };
 
           try {
-               const res = await fetch('http://localhost:5000/bookings', {
+               const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings`, {
                     method: "POST",
                     headers: {
                          "content-type": "application/json",

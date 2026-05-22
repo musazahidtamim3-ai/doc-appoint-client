@@ -17,7 +17,7 @@ const MyBookings = () => {
      const { register, handleSubmit, reset } = useForm();
 
      useEffect(() => {
-          fetch('http://localhost:5000/bookings')
+          fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings`)
                .then(res => res.json())
                .then(data => {
                     setBookings(data);
@@ -36,7 +36,7 @@ const MyBookings = () => {
      }
 
      const handleDelete = async (id) => {
-          const res = await fetch(`http://localhost:5000/bookings/${id}`, {
+          const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${id}`, {
                method: "DELETE"
           });
           const data = await res.json();
@@ -55,7 +55,7 @@ const MyBookings = () => {
                appointmentTime: data.appointmentTime
           };
 
-          const res = await fetch(`http://localhost:5000/bookings/${editBooking._id}`, {
+          const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${editBooking._id}`, {
                method: "PATCH",
                headers: { "content-type": "application/json" },
                body: JSON.stringify(updatedInfo)

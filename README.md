@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🩺 DocAppoint
 
-## Getting Started
+A secure, scalable, and production-ready Express.js backend for managing doctor appointments, featuring robust identity verification and structured MongoDB database storage.
 
-First, run the development server:
+🌐 **Live Production URL:** [https://doc-appoint.vercel.app](https://doc-appoint-indol.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Key Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+* **Secure Authentication Layer:** Integrated with `jose-cjs` using remote JSON Web Key Sets (JWKS) to validate user identity tokens seamlessly without compromising cryptographic secrets.
+* **Smart Search Filter Engine:** Implements advanced MongoDB case-insensitive `$regex` matching, enabling multi-criteria searches by doctor name or specialty via a single API endpoint.
+* **Isolated User Booking Management:** Restricts appointment retrieval dynamically based on validated token identity payloads, ensuring clients can only fetch and control their personal schedules.
+* **On-Demand Database Seeding:** Built-in intelligent bootstrap mechanism that checks data density at launch and automatically seeds pre-configured medical specialist directory data if collections are empty.
+* **Optimized Serverless Infrastructure:** Pre-configured with architectural routing rules tailored specifically for efficient, low-latency execution as decoupled microservices on Vercel Node runtimes.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack & Dependencies
 
-To learn more about Next.js, take a look at the following resources:
+* **Runtime & Framework:** Node.js, Express.js
+* **Database:** MongoDB
+* **Security & Tokens:** `jose-cjs` (JSON Web Token verification via JWKS)
+* **Cross-Origin Resource Sharing:** CORS Middleware
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   cd doc-appoint-backend

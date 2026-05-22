@@ -7,6 +7,10 @@ import { FaHospital, FaStar } from "react-icons/fa";
 import { PiBagFill } from "react-icons/pi";
 import { GiArcheryTarget } from "react-icons/gi";
 import { IoIosAlarm } from "react-icons/io";
+export const metadata = {
+     title: "Doc Appoint | doctor details page",
+     description: "A platform to book doctor appointment",
+}
 
 export default function DoctorDetailsPage() {
      const { id } = useParams();

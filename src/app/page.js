@@ -5,7 +5,10 @@ import { TbClockHour2 } from "react-icons/tb";
 import Featured from "./components/Featured";
 import Choose from "./components/Choose";
 import Feedback from "./components/Feedback";
-
+export const metadata = {
+  title: "Doc Appoint | Home",
+  description: "A platform to book doctor appointment",
+}
 export default function Home() {
   const users = [
     {

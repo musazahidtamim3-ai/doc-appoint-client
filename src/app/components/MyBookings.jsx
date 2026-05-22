@@ -4,6 +4,10 @@ import { useForm } from 'react-hook-form';
 import { FiEdit3 } from 'react-icons/fi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { toast } from 'react-toastify';
+export const metadata = {
+  title: "Doc Appoint | my bookings",
+  description: "A platform to book doctor appointment",
+}
 
 const MyBookings = () => {
      const [bookings, setBookings] = useState([]);
@@ -26,7 +30,9 @@ const MyBookings = () => {
      }, []);
 
      if (loading) {
-          return <div className="text-center py-10">Loading your bookings...</div>;
+          <div className="flex justify-center items-center min-h-screen">
+               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#54bbb8]"></div>
+          </div>
      }
 
      const handleDelete = async (id) => {
@@ -75,7 +81,7 @@ const MyBookings = () => {
      };
 
      return (
-          <div className="max-w-7xl mx-auto my-10 ">
+          <div className="my-10 ">
                <h2 className="text-xl font-bold mb-6">My Bookings ({bookings.length})</h2>
 
                <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>

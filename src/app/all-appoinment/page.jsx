@@ -1,4 +1,8 @@
 import AllDoctors from '../components/AllDoctors';
+export const metadata = {
+     title: "Doc Appoint | All Appointment",
+     description: "A platform to book doctor appointment",
+}
 
 const AllAppoinmentPage = async () => {
      const res = await fetch('http://localhost:5000/doctors')

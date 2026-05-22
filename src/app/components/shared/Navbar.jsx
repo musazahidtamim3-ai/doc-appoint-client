@@ -64,7 +64,7 @@ const Navbar = () => {
                <div className='hidden lg:flex items-center gap-3'>
                     {
                          isPending ? <p>User is loading...</p> : user ? <div className='flex items-center gap-3'>
-                                   <Image src={user?.photo || "/placeholder.jpg"} alt='' height={30} width={30} className='rounded-full' />
+                                   <Image src={user?.image || "/placeholder.jpg"} alt='' height={30} width={30} className='rounded-full' />
                                    
                               <Button onClick={handleLogout} className='bg-white text-[#54bbb8] border border-[#54bbb8] rounded-md font-semibold' >Logout</Button>
                          </div> : <div className='flex gap-3'>

@@ -7,6 +7,7 @@ import { FaStar } from 'react-icons/fa';
 import { TbCurrencyTaka } from 'react-icons/tb';
 import Link from 'next/link';
 
+
 const AllDoctors = ({doctors}) => {
      const [search, setSearch] = useState('')
      const displayedDoctors = (doctors.filter(doctor => (

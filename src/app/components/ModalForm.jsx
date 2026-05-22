@@ -55,7 +55,7 @@ const ModalForm = ({ doctorName }) => {
                const responseData = await res.json();
 
                if (responseData.insertedId) {
-                    toast.success(`Booked successfully for ${doctorName}`);
+                    toast.success("Appointment booked successfully!");
                     reset();
                } else {
                     toast.error("Something went wrong. Please try again.");

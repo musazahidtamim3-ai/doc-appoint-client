@@ -1,3 +1,4 @@
+import { AlertDialog, Button } from '@heroui/react';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiEdit3 } from 'react-icons/fi';
@@ -29,9 +30,6 @@ const MyBookings = () => {
      }
 
      const handleDelete = async (id) => {
-          const confirmDelete = window.confirm("Are you sure you want to delete this?");
-          if (!confirmDelete) return;
-
           const res = await fetch(`http://localhost:5000/bookings/${id}`, {
                method: "DELETE"
           });
@@ -39,7 +37,7 @@ const MyBookings = () => {
 
           if (data.deletedCount > 0) {
                setBookings(bookings.filter(b => b._id !== id));
-               toast.success("Deleted successfully!");
+               toast.success("Appointment deleted successfully!");
           }
      };
 
@@ -61,7 +59,7 @@ const MyBookings = () => {
 
           if (resData.modifiedCount > 0) {
                setBookings(bookings.map(b => b._id === editBooking._id ? { ...b, ...updatedInfo } : b));
-               toast.success("Updated successfully!");
+               toast.success("Appointment updated successfully!");
                setEditBooking(null); 
           }
      };
@@ -96,11 +94,48 @@ const MyBookings = () => {
 
                               <div className="flex justify-end gap-2 mt-4">
                                    <button onClick={() => openEdit(booking)} className="px-3 py-1.5 text-xs font-semibold bg-gray-100 hover:bg-gray-200 rounded flex items-center gap-1 cursor-pointer">
-                                        <FiEdit3 /> Edit
+                                        <FiEdit3 /> Update
                                    </button>
-                                   <button onClick={() => handleDelete(booking._id)} className="px-3 py-1.5 text-xs font-semibold bg-red-50 text-red-600 hover:bg-red-100 rounded flex items-center gap-1 cursor-pointer">
-                                        <RiDeleteBin6Line /> Delete
-                                   </button>
+                                   <AlertDialog>
+                                        <AlertDialog.Trigger>
+                                             <button className="px-3 py-1.5 text-xs font-semibold bg-red-50 text-red-600 hover:bg-red-100 rounded flex items-center gap-1 cursor-pointer">
+                                                  <RiDeleteBin6Line /> Delete
+                                             </button>
+                                        </AlertDialog.Trigger>
+
+                                        <AlertDialog.Backdrop>
+                                             <AlertDialog.Container>
+                                                  <AlertDialog.Dialog className="max-w-xl">
+
+                                                       <AlertDialog.CloseTrigger />
+
+                                                       <AlertDialog.Header>
+                                                            <AlertDialog.Icon status="danger" />
+                                                            <AlertDialog.Heading>
+                                                                 Delete appointment permanently?
+                                                            </AlertDialog.Heading>
+                                                       </AlertDialog.Header>
+
+                                                       <AlertDialog.Body>
+                                                            <p>
+                                                                 This will permanently delete appointment for
+                                                                 <strong> {booking.doctorName}</strong>.
+                                                            </p>
+                                                       </AlertDialog.Body>
+
+                                                       <AlertDialog.Footer>
+                                                            <button
+                                                                 onClick={() => handleDelete(booking._id)}
+                                                                 className="px-3 py-1.5 text-xs font-semibold bg-red-50 text-red-600 hover:bg-red-100 rounded flex items-center gap-1 cursor-pointer"
+                                                            >
+                                                                 <RiDeleteBin6Line /> Delete
+                                                            </button>
+                                                       </AlertDialog.Footer>
+
+                                                  </AlertDialog.Dialog>
+                                             </AlertDialog.Container>
+                                        </AlertDialog.Backdrop>
+                                   </AlertDialog>
                               </div>
                          </div>
                     ))}

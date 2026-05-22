@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import ModalForm from "@/app/components/ModalForm";
+import { FaHospital, FaStar } from "react-icons/fa";
+import { PiBagFill } from "react-icons/pi";
+import { GiArcheryTarget } from "react-icons/gi";
+import { IoIosAlarm } from "react-icons/io";
 
 export default function DoctorDetailsPage() {
      const { id } = useParams();
@@ -60,7 +64,7 @@ export default function DoctorDetailsPage() {
                          </div>
 
                          <div className="relative z-10 m-5 mt-auto self-start flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm border border-white/20">
-                              <span className="text-amber-500 text-sm">⭐</span>
+                              <span className="text-amber-500 text-sm"><FaStar/></span>
                               <span className="font-bold text-gray-800 text-sm">{doctor.rating}</span>
                               <span className="text-gray-500 text-xs">({doctor.totalReviews} Reviews)</span>
                          </div>
@@ -88,7 +92,7 @@ export default function DoctorDetailsPage() {
 
                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                               <div className="flex items-start gap-3 bg-gray-50/40 p-3 rounded-xl border border-gray-100/50">
-                                   <span className="text-xl mt-0.5">🏥</span>
+                                   <span className="text-xl mt-0.5"><FaHospital className="text-[#54bbb8]"/></span>
                                    <div>
                                         <h4 className="text-[11px] text-gray-400 uppercase font-bold tracking-wider">Chamber Hospital</h4>
                                         <p className="text-xs font-semibold text-gray-700 leading-tight mt-0.5">{doctor.hospital}</p>
@@ -97,7 +101,8 @@ export default function DoctorDetailsPage() {
                               </div>
 
                               <div className="flex items-start gap-3 bg-gray-50/40 p-3 rounded-xl border border-gray-100/50">
-                                   <span className="text-xl mt-0.5">💼</span>
+                                   <span className="text-xl mt-0.5"><PiBagFill className="text-[#54bbb8]" />
+</span>
                                    <div>
                                         <h4 className="text-[11px] text-gray-400 uppercase font-bold tracking-wider">Experience & Fee</h4>
                                         <p className="text-xs font-semibold text-gray-700 mt-0.5">Experience: {doctor.experience}</p>
@@ -113,9 +118,10 @@ export default function DoctorDetailsPage() {
                                         {doctor.specialties.map((spec, index) => (
                                              <span
                                                   key={index}
-                                                  className="bg-[#c3f7f51c] text-[#54bbb8] font-medium text-xs px-3 py-1.5 rounded-lg border border-gray-100"
+                                                  className="bg-[#c3f7f51c] text-[#54bbb8] flex items-center gap-2 font-medium text-xs px-3 py-1.5 rounded-lg border border-gray-100"
                                              >
-                                                  🎯 {spec}
+                                                  <GiArcheryTarget className="text-[#54bbb8] w-4 h-4"/>
+ {spec}
                                              </span>
                                         ))}
                                    </div>
@@ -127,7 +133,8 @@ export default function DoctorDetailsPage() {
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                    {doctor.availability.map((slot, index) => (
                                         <div key={index} className="flex items-center gap-2.5 p-2.5 bg-[#c9f9f711] rounded-xl border border-[#54bbb8]/30">
-                                             <span className="text-base">⏰</span>
+                                             <span className="text-base"><IoIosAlarm className="text-[#54bbb8]"/>
+</span>
                                              <div>
                                                   <p className="text-[10px] text-[#54bbb8] font-bold uppercase tracking-wider">Shift {index + 1}</p>
                                                   <p className="text-xs font-semibold text-gray-700">{slot}</p>

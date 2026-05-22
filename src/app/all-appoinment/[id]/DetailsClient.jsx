@@ -8,24 +8,31 @@ import { PiBagFill } from "react-icons/pi";
 import { GiArcheryTarget } from "react-icons/gi";
 import { IoIosAlarm } from "react-icons/io";
 
-
 export default function DoctorDetailsPage() {
-     const { id } = useParams();
+     const params = useParams();
+     const id = params?.id;
+
      const [doctor, setDoctor] = useState(null);
      const [loading, setLoading] = useState(true);
 
-     
-
      useEffect(() => {
-          fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctors`)
-               .then((res) => res.json())
+          if (!id) return;
+
+          setLoading(true);
+          fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/doctors/${id}`)
+               .then((res) => {
+                    if (!res.ok) {
+                         throw new Error("Doctor not found in server");
+                    }
+                    return res.json();
+               })
                .then((data) => {
-                    const foundDoctor = data.find((doc) => doc.id === id);
-                    setDoctor(foundDoctor);
+                    setDoctor(data);
                     setLoading(false);
                })
                .catch((err) => {
                     console.error("Error fetching doctor details:", err);
+                    setDoctor(null);
                     setLoading(false);
                });
      }, [id]);
@@ -42,6 +49,7 @@ export default function DoctorDetailsPage() {
           return (
                <div className="text-center py-20">
                     <h2 className="text-2xl font-bold text-gray-800">Doctor Not Found!</h2>
+                    <p className="text-gray-500 text-sm mt-1">ID: {id || "Unknown"}</p>
                </div>
           );
      }
@@ -51,7 +59,6 @@ export default function DoctorDetailsPage() {
                <div className="max-w-7xl w-full bg-white rounded-3xl shadow-xl border border-gray-100/80 overflow-hidden grid grid-cols-1 md:grid-cols-12 items-stretch">
 
                     <div className="md:col-span-5 bg-linear-to-b from-cyan-50/30 to-gray-50 relative min-h-87.5 md:min-h-full border-b md:border-b-0 md:border-r border-gray-100 flex flex-col justify-between">
-
                          <div className="absolute inset-0 w-full h-full">
                               <Image
                                    src={doctor.image}
@@ -65,14 +72,13 @@ export default function DoctorDetailsPage() {
                          </div>
 
                          <div className="relative z-10 m-5 mt-auto self-start flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm border border-white/20">
-                              <span className="text-amber-500 text-sm"><FaStar/></span>
+                              <span className="text-amber-500 text-sm"><FaStar /></span>
                               <span className="font-bold text-gray-800 text-sm">{doctor.rating}</span>
                               <span className="text-gray-500 text-xs">({doctor.totalReviews} Reviews)</span>
                          </div>
                     </div>
 
                     <div className="md:col-span-7 p-8 md:p-10 flex flex-col justify-between space-y-6">
-
                          <div>
                               <span className="text-[#54bbb8] font-semibold text-xs md:text-sm px-3 py-1 bg-cyan-50 rounded-full inline-block mb-2">
                                    {doctor.specialty}
@@ -93,7 +99,7 @@ export default function DoctorDetailsPage() {
 
                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                               <div className="flex items-start gap-3 bg-gray-50/40 p-3 rounded-xl border border-gray-100/50">
-                                   <span className="text-xl mt-0.5"><FaHospital className="text-[#54bbb8]"/></span>
+                                   <span className="text-xl mt-0.5"><FaHospital className="text-[#54bbb8]" /></span>
                                    <div>
                                         <h4 className="text-[11px] text-gray-400 uppercase font-bold tracking-wider">Chamber Hospital</h4>
                                         <p className="text-xs font-semibold text-gray-700 leading-tight mt-0.5">{doctor.hospital}</p>
@@ -102,8 +108,7 @@ export default function DoctorDetailsPage() {
                               </div>
 
                               <div className="flex items-start gap-3 bg-gray-50/40 p-3 rounded-xl border border-gray-100/50">
-                                   <span className="text-xl mt-0.5"><PiBagFill className="text-[#54bbb8]" />
-</span>
+                                   <span className="text-xl mt-0.5"><PiBagFill className="text-[#54bbb8]" /></span>
                                    <div>
                                         <h4 className="text-[11px] text-gray-400 uppercase font-bold tracking-wider">Experience & Fee</h4>
                                         <p className="text-xs font-semibold text-gray-700 mt-0.5">Experience: {doctor.experience}</p>
@@ -121,34 +126,33 @@ export default function DoctorDetailsPage() {
                                                   key={index}
                                                   className="bg-[#c3f7f51c] text-[#54bbb8] flex items-center gap-2 font-medium text-xs px-3 py-1.5 rounded-lg border border-gray-100"
                                              >
-                                                  <GiArcheryTarget className="text-[#54bbb8] w-4 h-4"/>
- {spec}
+                                                  <GiArcheryTarget className="text-[#54bbb8] w-4 h-4" />
+                                                  {spec}
                                              </span>
                                         ))}
                                    </div>
                               </div>
                          )}
 
-                         <div>
-                              <h4 className="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2">Chamber Availability</h4>
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                   {doctor.availability.map((slot, index) => (
-                                        <div key={index} className="flex items-center gap-2.5 p-2.5 bg-[#c9f9f711] rounded-xl border border-[#54bbb8]/30">
-                                             <span className="text-base"><IoIosAlarm className="text-[#54bbb8]"/>
-</span>
-                                             <div>
-                                                  <p className="text-[10px] text-[#54bbb8] font-bold uppercase tracking-wider">Shift {index + 1}</p>
-                                                  <p className="text-xs font-semibold text-gray-700">{slot}</p>
+                         {doctor.availability && (
+                              <div>
+                                   <h4 className="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2">Chamber Availability</h4>
+                                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                        {doctor.availability.map((slot, index) => (
+                                             <div key={index} className="flex items-center gap-2.5 p-2.5 bg-[#c9f9f711] rounded-xl border border-[#54bbb8]/30">
+                                                  <span className="text-base"><IoIosAlarm className="text-[#54bbb8]" /></span>
+                                                  <div>
+                                                       <p className="text-[10px] text-[#54bbb8] font-bold uppercase tracking-wider">Shift {index + 1}</p>
+                                                       <p className="text-xs font-semibold text-gray-700">{slot}</p>
+                                                  </div>
                                              </div>
-                                        </div>
-                                   ))}
+                                        ))}
+                                   </div>
                               </div>
-                         </div>
+                         )}
 
                          <div className="pt-2 px-5 lg:px-0">
-                              
-                              <ModalForm doctorName={doctor.name} doctorId={doctor.id}
-                                   doctorFee={doctor.fee} />
+                              <ModalForm doctorName={doctor.name} doctorId={doctor.id} doctorFee={doctor.fee} />
                          </div>
 
                     </div>

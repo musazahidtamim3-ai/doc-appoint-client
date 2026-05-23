@@ -54,11 +54,11 @@ const ModalForm = ({ doctorName }) => {
 
                const responseData = await res.json();
 
-               if (responseData.insertedId) {
+               if (res.ok) {
                     toast.success("Appointment booked successfully!");
                     reset();
                } else {
-                    toast.error("Something went wrong. Please try again.");
+                    toast.error(responseData.message || "Something went wrong. Please try again.");
                }
           } catch (error) {
                console.error("Fetch error:", error);

@@ -46,7 +46,20 @@ const Navbar = () => {
                <div className={`flex flex-col absolute lg:hidden gap-4 bg-white py-5 px-10 shadow-xl transition-all duration-300 rounded-md text-gray-500 z-40 ${open ? 'top-20 right-5' : 'top-20 -right-full'}`}>
                     {
                          isPending ? <p>User is loading...</p> : user ? 
-                              <Image src={user?.photo || "/placeholder.jpg"} alt='' height={30} width={30} className='rounded-full' />
+                              <div className="relative flex items-center gap-3 w-28 h-28 rounded-full border-4 border-white shadow-md mb-6 ring-4 ring-[#54bbb8]/20 transition-transform duration-300 hover:scale-105">
+                                                       <Image
+                                                            src={
+                                                                 user?.image ||
+                                                                 "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
+                                                            }
+                                                            alt="Profile"
+                                                            fill
+                                                            className="rounded-full object-cover"
+                                   />
+                                   <h1 className='text-md font-semibold'>{user?.name}</h1>
+                              
+                                                  </div>
+
                                : ''
                     }
                     <Link href={'/'} onClick={() => setOpen(false)}>Home</Link>

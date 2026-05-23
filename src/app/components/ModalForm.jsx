@@ -1,11 +1,13 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, DateField, Input, Label, ListBox, Modal, Surface, TextField, Select, TimeField } from "@heroui/react";
 import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { authClient } from '@/lib/auth-client';
 
-const ModalForm = ({ doctorName }) => {
+const ModalForm = ({ doctorName, doctorId, doctorFee, refetch }) => {
+     const [isOpen, setIsOpen] = useState(false);
+
      const { register, handleSubmit, control, reset, formState: { errors } } = useForm({
           defaultValues: {
                doctor: doctorName || "Selected Doctor"
@@ -20,8 +22,8 @@ const ModalForm = ({ doctorName }) => {
                return;
           }
 
-          const formatedDate = data.date ? data.date.toString() : "";
-          const formatedTime = data.time ? data.time.toString() : "";
+          const formatedDate = data.date ? `${data.date.year}-${String(data.date.month).padStart(2, '0')}-${String(data.date.day).padStart(2, '0')}` : "";
+          const formatedTime = data.time ? `${String(data.time.hour).padStart(2, '0')}:${String(data.time.minute).padStart(2, '0')}` : "";
 
           const bookingData = {
                userEmail: data.email,
@@ -30,7 +32,9 @@ const ModalForm = ({ doctorName }) => {
                gender: data.gender,
                phone: data.phone,
                appointmentDate: formatedDate,
-               appointmentTime: formatedTime
+               appointmentTime: formatedTime,
+               doctorId: doctorId,
+               fee: Number(doctorFee)
           };
 
           try {
@@ -47,18 +51,16 @@ const ModalForm = ({ doctorName }) => {
                     toast.error("Session expired or unauthorized! Please login again.");
                     return;
                }
-               if (!res.ok) {
-                    toast.error("Server rejected the request! Check console.");
-                    return;
-               }
 
                const responseData = await res.json();
 
                if (res.ok) {
-                    toast.success("Appointment booked successfully!");
+                    toast.success(responseData.message || "Appointment booked successfully!");
                     reset();
+                    setIsOpen(false);
+                    if (refetch) refetch();
                } else {
-                    toast.error(responseData.message || "Something went wrong. Please try again.");
+                    toast.error(responseData.message || "Server rejected the request!");
                }
           } catch (error) {
                console.error("Fetch error:", error);
@@ -68,8 +70,9 @@ const ModalForm = ({ doctorName }) => {
 
      return (
           <div className="w-full">
-               <Modal>
+               <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
                     <Button
+                         onPress={() => setIsOpen(true)}
                          className="w-full bg-linear-to-r from-[#01cfbe] to-[#54bbb8] text-white font-bold rounded-md py-3"
                     >
                          Book Appointment Now
@@ -134,6 +137,7 @@ const ModalForm = ({ doctorName }) => {
                                                        <Input placeholder="Enter your phone number" className='bg-gray-50' {...register("phone", { required: true })} />
                                                        {errors.phone && <p className='text-red-500 text-sm mt-1'>This field is required</p>}
                                                   </TextField>
+
                                                   <Controller
                                                        name="date"
                                                        control={control}

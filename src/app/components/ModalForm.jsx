@@ -75,10 +75,8 @@ const ModalForm = ({ doctorName }) => {
                          Book Appointment Now
                     </Button>
                     <Modal.Backdrop>
-                         {/* ১. কন্টেইনারকে ফ্লেক্স এবং আইটেম সেন্টার করে মোবাইলের জন্য স্ক্রিন ফিট করা হয়েছে */}
-                         <Modal.Container placement="auto" className="!flex !items-center !justify-center p-4">
-                              {/* ২. এখানে ইম্পর্ট্যান্ট (!) ট্যাগ ব্যবহার করে মোবাইল স্ক্রিনে মডাল ভেঙে যাওয়া বা বড় হওয়া আটকানো হয়েছে */}
-                              <Modal.Dialog className="!w-full !max-w-[calc(100%-1rem)] sm:!max-w-lg mx-auto bg-white rounded-xl shadow-2xl my-auto">
+                         <Modal.Container placement="auto" className="flex items-center justify-center p-4">
+                              <Modal.Dialog className="w-full max-w-lg mx-auto bg-white rounded-xl shadow-2xl my-auto">
                                    <Modal.CloseTrigger />
 
                                    <Modal.Header className="p-4 sm:p-6 pb-2">
@@ -87,8 +85,6 @@ const ModalForm = ({ doctorName }) => {
                                              Fill out the form below and confirm your booking. We will contact you soon.
                                         </p>
                                    </Modal.Header>
-
-                                   {/* ৩. মোবাইলের কিবোর্ড অন হলে স্ক্রিন ছোট হয়ে যেন কেটে না যায় সেজন্য max-h এবং ওভারফ্লো */}
                                    <Modal.Body className="p-4 sm:p-6 pt-0 max-h-[70vh] overflow-y-auto overflow-x-hidden">
                                         <Surface variant="default" className="border-0 p-0 bg-transparent">
                                              <form onSubmit={handleSubmit(handleTableData)} className="flex flex-col gap-4">
@@ -121,7 +117,7 @@ const ModalForm = ({ doctorName }) => {
                                                                       <Select.Value />
                                                                       <Select.Indicator />
                                                                  </Select.Trigger>
-                                                                 <Select.Popover className="!max-w-[calc(100%-2rem)]">
+                                                                 <Select.Popover className="max-w-lg">
                                                                       <ListBox>
                                                                            <ListBox.Item id="male" textValue="Male">Male <ListBox.ItemIndicator /></ListBox.Item>
                                                                            <ListBox.Item id="female" textValue="Female">Female <ListBox.ItemIndicator /></ListBox.Item>
@@ -138,8 +134,6 @@ const ModalForm = ({ doctorName }) => {
                                                        <Input placeholder="Enter your phone number" className='bg-gray-50' {...register("phone", { required: true })} />
                                                        {errors.phone && <p className='text-red-500 text-sm mt-1'>This field is required</p>}
                                                   </TextField>
-
-                                                  {/* ৪. ডেট এবং টাইম ফিল্ডের উইডথ সম্পূর্ণ ঠিক করা হয়েছে */}
                                                   <Controller
                                                        name="date"
                                                        control={control}
@@ -148,7 +142,7 @@ const ModalForm = ({ doctorName }) => {
                                                             <DateField className="w-full" value={value} onChange={onChange}>
                                                                  <Label>Appointment date</Label>
                                                                  <DateField.Group className="w-full flex">
-                                                                      <DateField.Input className="bg-gray-50 w-full !flex">
+                                                                      <DateField.Input className="bg-gray-50 w-full flex">
                                                                            {(segment) => <DateField.Segment segment={segment} />}
                                                                       </DateField.Input>
                                                                  </DateField.Group>
@@ -165,7 +159,7 @@ const ModalForm = ({ doctorName }) => {
                                                             <TimeField className="w-full" name="time" value={value} onChange={onChange}>
                                                                  <Label>Appointment time</Label>
                                                                  <TimeField.Group className="w-full flex">
-                                                                      <TimeField.Input className='bg-gray-50 w-full !flex'>
+                                                                      <TimeField.Input className='bg-gray-50 w-full flex'>
                                                                            {(segment) => <TimeField.Segment segment={segment} />}
                                                                       </TimeField.Input>
                                                                  </TimeField.Group>
